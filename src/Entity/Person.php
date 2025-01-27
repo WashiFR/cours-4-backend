@@ -22,6 +22,9 @@ class Person
     #[ORM\Column(length: 255)]
     private ?string $mail = null;
 
+    #[ORM\ManyToOne(targetEntity: Building::class, inversedBy: 'persons')]
+    private ?Building $building = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Person
     public function setMail(string $mail): static
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getBuilding(): ?Building
+    {
+        return $this->building;
+    }
+
+    public function setBuilding(Building $building): static
+    {
+        $this->building = $building;
 
         return $this;
     }
