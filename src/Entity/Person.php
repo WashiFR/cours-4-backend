@@ -14,7 +14,7 @@ class Person
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $fisrtName = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
@@ -22,19 +22,22 @@ class Person
     #[ORM\Column(length: 255)]
     private ?string $mail = null;
 
+    #[ORM\ManyToOne(targetEntity: Building::class, inversedBy: 'persons')]
+    private ?Building $building = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFisrtName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->fisrtName;
+        return $this->firstName;
     }
 
-    public function setFisrtName(string $fisrtName): static
+    public function setFirstName(string $firstName): static
     {
-        $this->fisrtName = $fisrtName;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -59,6 +62,18 @@ class Person
     public function setMail(string $mail): static
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getBuilding(): ?Building
+    {
+        return $this->building;
+    }
+
+    public function setBuilding(Building $building): static
+    {
+        $this->building = $building;
 
         return $this;
     }

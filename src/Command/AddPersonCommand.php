@@ -43,7 +43,7 @@ class AddPersonCommand extends Command
         $mail = $input->getArgument('mail');
 
         $person = new Person();
-        $person->setFisrtName($firstName);
+        $person->setFirstName($firstName);
         $person->setLastName($lastName);
         $person->setMail($mail);
 
