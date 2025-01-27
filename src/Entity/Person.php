@@ -14,7 +14,7 @@ class Person
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $fisrtName = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
@@ -27,14 +27,14 @@ class Person
         return $this->id;
     }
 
-    public function getFisrtName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->fisrtName;
+        return $this->firstName;
     }
 
-    public function setFisrtName(string $fisrtName): static
+    public function setFirstName(string $firstName): static
     {
-        $this->fisrtName = $fisrtName;
+        $this->firstName = $firstName;
 
         return $this;
     }
